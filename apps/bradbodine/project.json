@@ -2,64 +2,48 @@
   "name": "bradbodine",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "prefix": "bradbodine",
   "sourceRoot": "apps/bradbodine/src",
-  "tags": [],
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "executor": "@nx/vite:build",
+      "outputs": [
+        "{options.outputPath}",
+        "dist/apps/bradbodine/.nitro",
+        "dist/apps/bradbodine/ssr",
+        "dist/apps/bradbodine/analog"
+      ],
       "options": {
-        "outputPath": "dist/apps/bradbodine",
-        "index": "apps/bradbodine/src/index.html",
         "main": "apps/bradbodine/src/main.ts",
-        "polyfills": ["zone.js"],
-        "tsConfig": "apps/bradbodine/tsconfig.app.json",
-        "assets": [
-          "apps/bradbodine/src/favicon.ico",
-          "apps/bradbodine/src/assets"
-        ],
-        "styles": ["apps/bradbodine/src/styles.scss"],
-        "scripts": []
+        "configFile": "apps/bradbodine/vite.config.ts",
+        "outputPath": "dist/apps/bradbodine/client"
       },
+      "defaultConfiguration": "production",
       "configurations": {
-        "production": {
-          "budgets": [
-            {
-              "type": "initial",
-              "maximumWarning": "500kb",
-              "maximumError": "1mb"
-            },
-            {
-              "type": "anyComponentStyle",
-              "maximumWarning": "2kb",
-              "maximumError": "4kb"
-            }
-          ],
-          "outputHashing": "all"
-        },
         "development": {
-          "buildOptimizer": false,
-          "optimization": false,
-          "vendorChunk": true,
-          "extractLicenses": false,
-          "sourceMap": true,
-          "namedChunks": true
+          "mode": "development"
+        },
+        "production": {
+          "sourcemap": false,
+          "mode": "production"
         }
-      },
-      "defaultConfiguration": "production"
+      }
     },
     "serve": {
-      "executor": "@angular-devkit/build-angular:dev-server",
-      "configurations": {
-        "production": {
-          "browserTarget": "bradbodine:build:production"
-        },
-        "development": {
-          "browserTarget": "bradbodine:build:development"
-        }
+      "executor": "@nx/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "bradbodine:build",
+        "port": 4200
       },
-      "defaultConfiguration": "development"
+      "configurations": {
+        "development": {
+          "buildTarget": "bradbodine:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "bradbodine:build:production"
+        }
+      }
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
@@ -67,35 +51,17 @@
         "browserTarget": "bradbodine:build"
       }
     },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["apps/bradbodine/coverage"]
+    },
     "lint": {
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "apps/bradbodine/**/*.ts",
-          "apps/bradbodine/**/*.html"
-        ]
-      }
-    },
-    "test": {
-      "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
-      "options": {
-        "jestConfig": "apps/bradbodine/jest.config.ts",
-        "passWithNoTests": true
-      },
-      "configurations": {
-        "ci": {
-          "ci": true,
-          "codeCoverage": true
-        }
-      }
-    },
-    "serve-static": {
-      "executor": "@nx/web:file-server",
-      "options": {
-        "buildTarget": "bradbodine:build"
+        "lintFilePatterns": ["apps/bradbodine/**/*.{ts,html}"]
       }
     }
-  }
+  },
+  "tags": []
 }

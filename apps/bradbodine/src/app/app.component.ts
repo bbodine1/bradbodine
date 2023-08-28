@@ -1,14 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
+  selector: 'analog-app-root',
   standalone: true,
-  imports: [NxWelcomeComponent, RouterModule],
-  selector: 'bradbodine-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  imports: [RouterOutlet],
+  template: ` <router-outlet></router-outlet> `,
 })
-export class AppComponent {
-  title = 'bradbodine';
-}
+export class AppComponent {}
