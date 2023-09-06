@@ -10,7 +10,7 @@ export interface User {
 }
 
 @Component({
-  selector: 'ncd-nx-welcome',
+  selector: 'ncd-db-output',
   standalone: true,
   imports: [CommonModule, HttpClientModule],
   providers: [HttpClient],
@@ -28,7 +28,7 @@ export interface User {
   `,
   styles: [],
 })
-export class NxWelcomeComponent implements OnInit {
+export class DbOutputComponent implements OnInit {
   users: User[] = [];
   url = '/assets/db.json';
 
