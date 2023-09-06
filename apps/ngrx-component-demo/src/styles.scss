@@ -102,6 +102,7 @@ h6 {
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 1rem;
+  color: #f2f2f2;
 }
 
 h1 {
@@ -131,6 +132,7 @@ h6 {
 /* Set the font size and line height for paragraphs */
 p {
   margin-bottom: 1rem;
+  color: #f2f2f2;
 }
 
 /* Set the font size and line height for links */
@@ -152,4 +154,12 @@ ol {
 
 li {
   margin-bottom: 0.5rem;
+}
+
+code {
+  background-color: #435569;
+  padding: 2px 4px;
+  border-radius: 4px;
+  box-shadow: 0 0 0px 1px #0056b3;
+  font-weight: 100;
 }

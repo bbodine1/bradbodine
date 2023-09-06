@@ -14,8 +14,8 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain(
-      'Welcome ngrx-component-demo'
+    expect(compiled.querySelector('h2')?.textContent).toContain(
+      'This Data is Derived from db.json'
     );
   });
 
