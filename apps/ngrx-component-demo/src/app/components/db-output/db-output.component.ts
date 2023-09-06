@@ -15,18 +15,21 @@ export interface User {
   imports: [CommonModule, HttpClientModule],
   providers: [HttpClient],
   template: `
-    <table id="user">
-      <tr>
-        <th>Name</th>
-        <th>Email</th>
-      </tr>
-      <tr *ngFor="let user of users">
-        <td>{{ user.name }}</td>
-        <td>{{ user.email }}</td>
-      </tr>
-    </table>
+    <div class="container">
+      <header>
+        <strong>Name</strong>
+        <strong>Email</strong>
+      </header>
+
+      <div class="content">
+        <ng-container *ngFor="let user of users">
+          <span>{{ user.name }}</span>
+          <span>{{ user.email }}</span>
+        </ng-container>
+      </div>
+    </div>
   `,
-  styles: [],
+  styleUrls: [`./db-output.component.scss`],
 })
 export class DbOutputComponent implements OnInit {
   users: User[] = [];

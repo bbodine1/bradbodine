@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { DbOutputComponent } from './db-output.component';
+import { DbOutputComponent } from './components/db-output/db-output.component';
 
 @Component({
   standalone: true,

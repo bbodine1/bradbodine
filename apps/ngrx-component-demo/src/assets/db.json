@@ -1,32 +1,32 @@
 [
   {
     "id": 1,
-    "name": "Luca",
-    "email": "luca@gmail.com",
+    "name": "Lucas",
+    "email": "lucas@zgmail.com",
     "gender": "male"
   },
   {
     "id": 2,
     "name": "Lilly",
-    "email": "lilly@gmail.com",
+    "email": "lilly@zgmail.com",
     "gender": "female"
   },
   {
     "id": 3,
     "name": "Anna",
-    "email": "anna@gmail.com",
+    "email": "anna@zgmail.com",
     "gender": "female"
   },
   {
     "id": 4,
     "name": "John",
-    "email": "john@gmail.com",
+    "email": "john@zgmail.com",
     "gender": "male"
   },
   {
     "id": 5,
     "name": "Mary",
-    "email": "mary@gmail.com",
+    "email": "mary@zgmail.com",
     "gender": "female"
   }
 ]

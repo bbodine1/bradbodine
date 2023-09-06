@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { DbOutputComponent } from './db-output.component';
+import { DbOutputComponent } from './components/db-output/db-output.component';
 import { RouterTestingModule } from '@angular/router/testing';
 
 describe('AppComponent', () => {
