@@ -1,6 +1,6 @@
 import { getGreeting } from '../support/app.po';
 
-describe('ngrx-component-demo', () => {
+describe('db-json-demo', () => {
   beforeEach(() => cy.visit('/'));
 
   it('should display welcome message', () => {
@@ -8,6 +8,6 @@ describe('ngrx-component-demo', () => {
     cy.login('my-email@something.com', 'myPassword');
 
     // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains('Welcome ngrx-component-demo');
+    getGreeting().contains('Welcome db-json-demo');
   });
 });

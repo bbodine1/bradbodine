@@ -1,9 +1,9 @@
 /* eslint-disable */
 export default {
-  displayName: 'ngrx-component-demo',
+  displayName: 'db-json-demo',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../coverage/apps/ngrx-component-demo',
+  coverageDirectory: '../../coverage/apps/db-json-demo',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

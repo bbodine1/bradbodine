@@ -31,5 +31,5 @@ import { DbOutputComponent } from './components/db-output/db-output.component';
   ],
 })
 export class AppComponent {
-  title = 'ngrx-component-demo';
+  title = 'db-json-demo';
 }

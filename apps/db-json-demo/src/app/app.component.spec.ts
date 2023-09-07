@@ -19,9 +19,9 @@ describe('AppComponent', () => {
     );
   });
 
-  it(`should have as title 'ngrx-component-demo'`, () => {
+  it(`should have as title 'db-json-demo'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('ngrx-component-demo');
+    expect(app.title).toEqual('db-json-demo');
   });
 });
