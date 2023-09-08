@@ -7,9 +7,16 @@ body {
   display: block;
   height: 100%;
   color: white;
-  background: linear-gradient(to bottom, #007bff, #87cefa);
+  --tw-bg-opacity: 1;
+  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
 }
 
 h1 {
   font-size: 3rem;
+}
+
+@layer base {
+  h2 {
+    @apply mt-8 text-5xl;
+  }
 }

@@ -7,4 +7,5 @@ export interface BlogPost {
   authorTitle: string;
   authorImage: string;
   date: string;
+  category: [string];
 }

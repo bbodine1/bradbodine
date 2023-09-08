@@ -1,36 +1,81 @@
 import { MarkdownComponent, injectContent } from '@analogjs/content';
-import { AsyncPipe, NgIf } from '@angular/common';
+import { AsyncPipe, NgIf, NgFor, DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
 
 import { BlogPost } from '../../models/post';
 
 @Component({
   standalone: true,
-  imports: [MarkdownComponent, NgIf, AsyncPipe],
+  imports: [MarkdownComponent, NgIf, NgFor, AsyncPipe, DatePipe],
   template: `
     <div *ngIf="post$ | async as post">
       <!-- component -->
-      <div
-        class="h-96 text-white text-center grid bg-cover bg-[url('https://images.unsplash.com/photo-1683009427540-c5bd6a32abf6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop')]"
-      >
-        <div
-          class="col-start-1 row-start-1 bg-gray-800 bg-opacity-70 w-full h-full"
-        ></div>
-        <div class="col-start-1 row-start-1 mx-auto my-auto">
-          <h1 class="font-bold text-2xl">Blog Post</h1>
-          <p>{{ post.attributes.thing }}</p>
-        </div>
-      </div>
+      <div class="max-w-screen-lg mx-auto">
+        <main class="mt-10">
+          <div class="mb-4 md:mb-0 w-full mx-auto relative">
+            <div class="px-4 lg:px-0">
+              <h2 class="font-semibold leading-tight">
+                {{ post.attributes.title }}
+              </h2>
 
-      <div
-        class="grid text-center text-black place-content-center min-h-[500px] relative isolate  after:absolute after:z-[-1] after:inset-0 after:bg-pink-700 after:opacity-90 after:bg-[url('https://images.unsplash.com/photo-1604050170221-aed634784f64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1664&q=80')] after:bg-top after:bg-cover "
-      >
-        <h1 class="font-semibold text-4xl tracking-wide">
-          {{ post.attributes.title }}
-        </h1>
-        <p class="text-xs text-center leading-tight">
-          <analog-markdown [content]="post.content" />
-        </p>
+              <a
+                *ngFor="let category of post.attributes.category"
+                href="#"
+                class="py-2 text-green-700 inline-flex items-center justify-center mb-2"
+              >
+                {{ category }}
+              </a>
+            </div>
+
+            <img
+              src="{{ post.attributes.image }}"
+              class="w-full object-cover lg:rounded"
+              style="height: 28em;"
+            />
+          </div>
+
+          <div class="flex flex-col lg:flex-row lg:space-x-12">
+            <div
+              class="px-4 lg:px-0 mt-12 text-gray-300 text-lg leading-relaxed w-full lg:w-3/4"
+            >
+              <analog-markdown [content]="post.content"></analog-markdown>
+            </div>
+
+            <div class="w-full lg:w-1/4 m-auto mt-12 max-w-screen-sm">
+              <div class="p-4 border-t border-b md:border md:rounded">
+                <div class="flex py-2">
+                  <img
+                    src="{{ post.attributes.authorImage }}"
+                    class="h-10 w-10 rounded-full mr-2 object-cover"
+                  />
+
+                  <div>
+                    <p class="font-semibold text-gray-400 text-sm">
+                      {{ post.attributes.author }}
+                    </p>
+
+                    <p class="font-semibold text-gray-500 text-xs">
+                      {{ post.attributes.date | date : 'mediumDate' }}
+                    </p>
+                  </div>
+                </div>
+
+                <p class="text-gray-400 py-3">
+                  Brad writes about technology Yourself required no at thoughts
+                  delicate landlord it be. Branched dashwood do is whatever it.
+                </p>
+
+                <button
+                  class="px-2 py-1 text-gray-100 bg-green-700 flex w-full items-center justify-center rounded"
+                >
+                  Follow
+                  <i class="bx bx-user-plus ml-2"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </main>
+        <!-- main ends here -->
       </div>
     </div>
   `,
