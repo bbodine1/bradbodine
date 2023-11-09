@@ -2,7 +2,9 @@
   "name": "@bradbodine/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "postinstall": "node ./tools/scripts/patch-nx-cli.js"
+  },
   "private": true,
   "dependencies": {
     "@analogjs/content": "^0.2.0",
@@ -54,6 +56,7 @@
     "@types/node": "16.11.7",
     "@typescript-eslint/eslint-plugin": "^5.60.1",
     "@typescript-eslint/parser": "^5.60.1",
+    "astro": "^2.10.7",
     "autoprefixer": "^10.4.0",
     "cypress": "^13.0.0",
     "eslint": "~8.46.0",
