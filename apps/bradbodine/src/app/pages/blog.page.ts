@@ -5,7 +5,7 @@ import { RouterOutlet } from '@angular/router';
   standalone: true,
   imports: [RouterOutlet],
   host: {
-    class: 'prose prose-slate',
+    class: 'blog-page',
   },
   template: ` <router-outlet /> `,
 })

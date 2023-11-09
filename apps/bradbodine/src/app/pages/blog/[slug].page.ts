@@ -38,7 +38,10 @@ import { BlogPost } from '../../models/post';
             <div
               class="px-4 lg:px-0 mt-12 text-gray-300 text-lg leading-relaxed w-full lg:w-3/4"
             >
-              <analog-markdown [content]="post.content"></analog-markdown>
+              <analog-markdown
+                [content]="post.content"
+                class="prose prose-slate"
+              ></analog-markdown>
             </div>
 
             <div class="w-full lg:w-1/4 m-auto mt-12 max-w-screen-sm">
@@ -54,15 +57,16 @@ import { BlogPost } from '../../models/post';
                       {{ post.attributes.author }}
                     </p>
 
-                    <p class="font-semibold text-gray-500 text-xs">
+                    <p class="font-semibold text-gray-500 text-xs mt-1">
                       {{ post.attributes.date | date : 'mediumDate' }}
                     </p>
                   </div>
                 </div>
 
-                <p class="text-gray-400 py-3">
-                  Brad writes about technology Yourself required no at thoughts
-                  delicate landlord it be. Branched dashwood do is whatever it.
+                <p class="text-gray-400 text-sm mb-4">
+                  Brad writes about various aspects of Angular, such as best
+                  practices, tips, tutorials, and possibly more advanced topics
+                  as well.
                 </p>
 
                 <button
